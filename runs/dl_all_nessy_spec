@@ -1,0 +1,24 @@
+#!/bin/bash
+
+modes='nlte lte'
+#modes='nlte'
+
+cubes='hydro ssd 300G'
+#cubes='ssd'
+
+#mus='6 8'
+mus='2'
+
+for cube in $cubes; do
+
+    for mode in $modes; do
+
+        for mu in $mus; do
+
+            ./dl_one_nessy_spec G2V $cube 8 angles $mode $mu
+
+        done
+
+    done
+
+done

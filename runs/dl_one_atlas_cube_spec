@@ -1,0 +1,14 @@
+#!/bin/bash
+
+stype=$1
+ctype=$2
+rname=$3
+rangl=$4
+
+path=atlas/$stype/matthias/$ctype/$rname/$rangl
+
+echo $path
+
+mkdir -p ./$path
+
+rsync -rv rtagirov@login.hpc.ic.ac.uk:/rds/general/user/rtagirov/ephemeral/runs/$path/spec/ ./$path/

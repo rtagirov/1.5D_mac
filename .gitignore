@@ -1,0 +1,5 @@
+one_quarter_results
+*.npz
+runs/atlas
+runs/atlas_180_300
+runs/nessy

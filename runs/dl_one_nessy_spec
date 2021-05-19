@@ -1,0 +1,16 @@
+#!/bin/bash
+
+stype=$1
+ctype=$2
+rfrac=$3
+rname=$4
+rmode=$5
+rangl=$6
+
+path=nessy/$stype/matthias/$ctype/$rfrac/$rname/$rmode/$rangl
+
+echo $path
+
+mkdir -p ./$path
+
+rsync -rv rtagirov@login.hpc.ic.ac.uk:/rds/general/user/rtagirov/ephemeral/runs/$path/spec/ ./$path/

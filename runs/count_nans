@@ -1,0 +1,25 @@
+#!/bin/bash
+
+ctypes='300G ssd hydro'
+
+mus='1 8 6 4 2'
+
+declare -i ln nn on rn
+
+for ctype in $ctypes; do
+
+    for mu in $mus; do
+
+        ln=$(ls -l ./atlas/G2V/matthias/$ctype/8/angles/lte/$mu/spec | wc -l)
+
+        nn=$(wc -l ./nanlog/${ctype}_${mu} | awk '{print $1}')
+
+        on=$(wc -l ./onelog/${ctype}_${mu} | awk '{print $1}')
+
+        rn=ln-nn-on
+
+        echo line: $ln nan: $nn one: $on remaining: $rn
+
+    done
+
+done

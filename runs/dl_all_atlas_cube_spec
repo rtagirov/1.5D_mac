@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cubes='hydro ssd 300G'
+
+rangls='12468'
+
+for cube in $cubes; do
+
+    for rangl in $rangls; do
+
+        ./dl_one_atlas_cube_spec G2V $cube angles $rangl
+
+    done
+
+done

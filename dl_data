@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for mode in lte nlte; do
+
+    for model in fal kur; do
+
+        for activity in q_tmin f_tmin; do
+
+            scp rtagirov@ph-rtagirov.ph.ic.ac.uk:/mnt/SSD/sim/runs/nessy/$1/$mode/$model/$activity/$2.out ./$2_${mode}_${model}_${activity}
+
+        done
+
+    done
+
+done

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+cubes='hydro ssd 300G'
+
+mus=$(seq 1 9)
+
+for cube in $cubes; do
+
+    echo $cube
+
+    for mu in $mus; do 
+
+        scp rtagirov@ph-rtagirov.ph.ic.ac.uk:/mnt/SSD/sim/runs/cpline/G2V/$cube/mu/$mu/dpn.log ./$cube/dpn.log.$mu
+
+    done
+
+done
+
+for cube in $cubes; do
+
+    for mu in $mus; do 
+
+        if [ "$(wc -l ./$cube/dpn.log.$mu | awk '{print $1}')" != "262144" ]; then
+
+            echo $cube failed at mu = $mu
+
+        fi
+
+    done
+
+done

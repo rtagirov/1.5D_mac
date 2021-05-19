@@ -1,0 +1,61 @@
+#!/bin/bash
+
+ctypes='300G ssd hydro'
+
+mus='1 8 6 4 2'
+
+#mkdir -p nanlog
+mkdir -p onelog
+
+#rm -f ./nanlog/*
+rm -f ./onelog/*
+
+for ctype in $ctypes; do
+
+    for mu in $mus; do
+
+        in=./atlas/G2V/matthias/$ctype/8/angles/lte/$mu/spec
+
+        out=./atlas_180_300/G2V/matthias/$ctype/8/angles/lte/$mu/spec
+
+        mkdir -p $out
+
+        files=$(ls $in)
+
+        for f in $files; do
+
+            if [ $f == mpsa.wave ]; then continue; fi
+
+            rm -f $out/$f
+
+            echo $in/$f
+
+#            nan=$(grep -i nan $in/$f)
+
+#            one=$(grep -e E+[1-9][1-9] $in/$f)
+
+#            if [ "$nan" ]; then
+
+#                echo NaNs in  $in/$f >> ./nanlog/${ctype}_${mu}
+
+#            elif [ "$one" ]; then
+
+#                echo large values in $in/$f >> ./onelog/${ctype}_${mu}
+
+#            else
+
+            if [ $(wc -l $in/$f | awk '{print $1}') != 1221 ]; then
+
+                echo $in/$f >> ./onelog/${ctype}_${mu}
+
+            else
+
+                head -n 332 $in/$f | tail -n 119 > $out/$f
+
+            fi
+
+        done
+
+    done
+
+done

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+for i in 2 4 6 8 10; do
+
+    echo Downloading for $i...
+
+    cd $i
+
+    scp $pc:/mnt/SSD/sim/runs/atlas/no_lines/$i/mpsa.punch ./
+    scp $pc:/mnt/SSD/sim/runs/atlas/no_lines/$i/mpsa.wave ./
+#    scp $pc:/mnt/SSD/sim/runs/atlas/no_lines/$i/mpsa.print ./
+
+    head -n 332 mpsa.punch | tail -n 119 > mpsa.punch.180.300
+    head -n 332 mpsa.wave  | tail -n 119 > mpsa.wave.180.300
+#    head -n 330 mpsa.punch | tail -n 116 > mpsa.punch.180.300
+#    head -n 330 mpsa.wave  | tail -n 116 > mpsa.wave.180.300
+
+    mv mpsa.wave.180.300 ../
+
+#    scp $pc:/mnt/SSD/sim/runs/nessy/no_lines/$i/spec.out ./
+#    scp $pc:/mnt/SSD/sim/runs/nessy/no_lines/$i/POPNUM ./
+
+#    scp $pc:/mnt/SSD/sim/nessy/inp/atm/muram/256_$i ./atm.inp
+
+#    scp $pc:/mnt/SSD/sim/runs/nessy/gen/datom.inp ./
+
+    cd ..
+
+done
