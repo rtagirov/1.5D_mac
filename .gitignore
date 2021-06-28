@@ -3,3 +3,10 @@ one_quarter_results
 runs/atlas
 runs/atlas_180_300
 runs/nessy
+fig/
+.ipynb_checkpoints/
+met/
+hist/
+img_hyd_ssd_rat/
+img_nlte_lte_rat/
+img_nlte_lte_rat.pdf
