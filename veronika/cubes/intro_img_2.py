@@ -40,16 +40,16 @@ for i in tqdm(range(Na)):
     T_300[i, :, :] = T[i, :, sample].T
     t_300[i, :, :] = t[i, :, sample].T
     
-    for k in range(Ns):
+#    for k in range(Ns):
         
-        for j in range(Nz - 1):
+#        for j in range(Nz - 1):
             
-            delta = np.abs(np.log10(t_ssd[i, j, k]) - np.log10(t_ssd[i, j + 1, k]))
+#            delta = np.abs(np.log10(t_ssd[i, j, k]) - np.log10(t_ssd[i, j + 1, k]))
         
-            if np.abs(delta - 0.0001) < 1e-6: T_ssd[i, j, k] = np.nan
+#            if np.abs(delta - 0.0001) < 1e-6: T_ssd[i, j, k] = np.nan
 
-            delta = np.abs(np.log10(t_300[i, j, k]) - np.log10(t_300[i, j + 1, k]))
+#            delta = np.abs(np.log10(t_300[i, j, k]) - np.log10(t_300[i, j + 1, k]))
         
-            if np.abs(delta - 0.0001) < 1e-6: T_300[i, j, k] = np.nan
+#            if np.abs(delta - 0.0001) < 1e-6: T_300[i, j, k] = np.nan
 
 np.savez('intro_img_2', t_ssd = t_ssd, t_300 = t_300, T_ssd = T_ssd, T_300 = T_300)
