@@ -14,3 +14,4 @@ veronika/*.npz
 veronika/spec/*.npz
 veronika/cubes/300G
 veronika/cubes/ssd
+veronika/cubes/rot_tau200
