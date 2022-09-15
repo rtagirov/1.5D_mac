@@ -12,6 +12,7 @@ img_nlte_lte_rat/
 img_nlte_lte_rat.pdf
 veronika/*.npz
 veronika/spec/*.npz
+veronika/spec/atlas
 veronika/cubes/300G
 veronika/cubes/ssd
 veronika/cubes/rot_tau200
